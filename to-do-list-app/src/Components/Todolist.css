@@ -25,3 +25,17 @@ h1 {
     border-radius: 10px 0 10px 0;
     border: 1px solid #ffcc66;
 }
+.add-btn, .update-btn, .cancel-btn {
+    padding: 8px 8px;
+    border: none;
+    border-radius: 10px 0 10px 0;
+    background-color: #ffcc66;
+    color: black;
+    cursor: pointer;
+    font-size: 20px;
+    transition: background-color 0.3s ease;
+}
+.add-btn:hover, .update-btn:hover, .cancel-btn:hover {
+    background-color: black;
+    color: #ffcc66;
+}
