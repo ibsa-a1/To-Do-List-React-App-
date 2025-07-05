@@ -33,8 +33,10 @@ function Todolist() {
     }
 
     const removeTodo = (index) => {
-        const updatedTodos = todos.filter((_, i) => i !== index)
-        setTodos(updatedTodos)
+        if (window.confirm("Are you sure you want to delete this task?")) {
+            const updatedTodos = todos.filter((_, i) => i !== index)
+            setTodos(updatedTodos)
+        } 
     }
 
     const toggleCompleted = (index) => {
@@ -49,6 +51,7 @@ function Todolist() {
             <h1>To-Do List</h1>
             <div className="input-section">
                 <input type="text"value={inputvalue} onChange={(e) => setInputvalue(e.target.value)} 
+                onKeyDown={(e) => e.key === 'Enter' && addTodo()}
                 placeholder='Enter a new Task'
                 className="input-field" />
 
@@ -63,6 +66,7 @@ function Todolist() {
                 )}
             </div>
             <div>
+                {todos.length === 0 ? <p className="empty-msg">No tasks yet. Add one!</p> : null}
                 <ul className="todo-list">
                     {
                         todos.map((todo, index) => (
