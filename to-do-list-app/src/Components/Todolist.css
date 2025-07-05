@@ -35,6 +35,20 @@ h1 {
     font-size: 20px;
     transition: background-color 0.3s ease;
 }
+.clear-all-btn {
+    padding: 8px 8px;
+    border: none;
+    border-radius: 10px 0 10px 0;
+    background-color: #e74c3c;
+    color: whitesmoke;
+    cursor: pointer;
+    font-size: 20px;
+    transition: background-color 0.3s ease;
+}
+
+.clear-all-btn:hover {
+  background-color: #c0392b; /* darker red */
+}
 .add-btn:hover, .update-btn:hover, .cancel-btn:hover {
     background-color: black;
     color: #ffcc66;

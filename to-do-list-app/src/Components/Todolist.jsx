@@ -62,8 +62,10 @@ function Todolist() {
                     </>
                 ) : (
                     <button className="add-btn" onClick={addTodo}>Add</button>
-                    
                 )}
+
+                {todos.length > 0 ? <button className="clear-all-btn" onClick={() => setTodos([])}>Clear All</button> : null}
+                
             </div>
             <div>
                 {todos.length === 0 ? <p className="empty-msg">No tasks yet. Add one!</p> : null}
