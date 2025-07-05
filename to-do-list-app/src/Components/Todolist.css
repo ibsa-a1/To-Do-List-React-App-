@@ -91,7 +91,7 @@ h1 {
 .btn-done {
     color: rgb(248, 224, 4);
 }
-.btn-group:hover {
+.btn-edit:hover, .btn-remove:hover, .btn-done:hover {
     opacity: 0.8;
 }
 .empty-msg {

@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import './Todolist.css'
 import {BiCheckDouble, BiEdit, BiTrash, BiCheckCircle, BiReset, BiRefresh} from 'react-icons/bi'
 
@@ -45,6 +45,19 @@ function Todolist() {
         setTodos(updatedTodos)
     } 
 
+    useEffect(() => {
+        const storedTodos = localStorage.getItem('todos')
+        console.log('Loaded from localStorage:', storedTodos)
+        if (storedTodos) {
+            setTodos(JSON.parse(storedTodos))
+        }
+    }, [])
+
+    useEffect(() => {
+        console.log('Saving todos to localStorage:', todos)
+        localStorage.setItem('todos', JSON.stringify(todos))
+    }, [todos])
+
   return (
     <div>
         <div className="todo-container">
@@ -65,7 +78,7 @@ function Todolist() {
                 )}
 
                 {todos.length > 0 ? <button className="clear-all-btn" onClick={() => setTodos([])}>Clear All</button> : null}
-                
+
             </div>
             <div>
                 {todos.length === 0 ? <p className="empty-msg">No tasks yet. Add one!</p> : null}
